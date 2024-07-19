@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Rajii!</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+            background-image: linear-gradient(to bottom, #f8f9fa, #fff);
+        }
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 1;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            animation: bounce 2s ease-in-out;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .message, .story {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            animation: fadeIn 2s ease-in-out;
+            font-size: 18px;
+            font-weight: 400;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 500;
+            color: #fff;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s ease-in-out;
+        }
+        button:hover {
+            background-color: #ff85c1;
+            transform: scale(1.05);
+        }
+        .birthday-cake {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            display: none;
+            animation: zoomIn 2s ease-in-out;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .hearts {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+            background-image: linear-gradient(to bottom, #f8f9fa, #fff);
+        }
+        .heart {
+            width: 30px;
+            height: 30px;
+            background-color: #ff7369;
+            position: absolute;
+            animation: float 5s infinite ease-in-out;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+        }
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 7s;
+            animation-delay: 1s;
+        }
+        .heart:nth-child(2) {
+            left: 30%;
+            animation-duration: 5s;
+            animation-delay: 2s;
+        }
+        .heart:nth-child(3) {
+            left: 50%;
+            animation-duration: 6s;
+            animation-delay: 3s;
+        }
+        .heart:nth-child(4) {
+            left: 70%;
+            animation-duration: 4s;
+            animation-delay: 4s;
+        }
+        .heart:nth-child(5) {
+            left: 90%;
+            animation-duration: 8s;
+            animation-delay: 5s;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            .message, .story {
+                font-size: 1em;
+            }
+            .signature {
+                font-size: 1.1em;
+            }
+        }
+        .lyrics {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 18px;
+            font-weight: 400;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday Rajii!</h1>
+        <div id="initialContent">
+            <button id="showMessageBtn">Read Birthday Message</button>
+        </div>
+        <div id="messageContent" class="hidden">
+            <p class="message">On this special day, I want you to know how much you mean to me. You bring so much joy and love into my life, and I am grateful for every moment we share. May your birthday be filled with all the love and happiness you deserve. I love you more than words can say.</p>
+            <button id="showStoryBtn">Read Our Love Story</button>
+        </div>
+        <div id="storyContent" class="hidden">
+            <p class="story">Once upon a time, in a world full of stars, I found my brightest star, you. Our journey has been filled with moments of joy, laughter, and endless love. You are my best friend, my confidant, and my soulmate. Every day with you is a new adventure, and I cherish every moment we spend together. Happy Birthday, my love. May our story continue to be as magical and wonderful as you are.</p>
+            <button id="cutCakeBtn">Cut the Cake</button>
+        </div>
+        <img src="https://raw.githubusercontent.com/mohid147/pics/main/2023-01-31%2015.10.51.jpg" alt="Birthday Cake" class="birthday-cake" id="birthdayCake">
+    </div>
+
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="lyrics" id="lyrics"></div>
+
+    <audio id="birthdaySong" src="Perfect-(Mr-Jat.in).mp3"></audio>
+
+    <script>
+        const lyrics = [
+    { time: 0, text: "I found a love, for me.....❤️" },
+    { time: 8, text: "Darling just dive right in" },
+    { time: 9, text: "And follow my lead" },
+    { time: 14, text: "Well I found a girl, beautiful and sweet" },
+    { time: 26, text: "I never knew you were the someone waiting for me" },
+    { time: 31, text: "Cause we were just kids when we fell in love" },
+    { time: 34, text: "Not knowing what it was" },
+    { time: 38, text: "I will not give you up this time" },
+    { time: 41, text: "Darling, just kiss me slow, your heart is all I own" },
+    { time: 45, text: "And in your eyes you're holding mine" },
+    { time: 50, text: "Baby, I'm dancing in the dark" },
+    { time: 54, text: "With you between my arms" },
+    { time: 60, text: "Barefoot on the grass" },
+    { time: 63, text: "Listening to our favorite song" },
+    { time: 67, text: "When you said you looked a mess" },
+    { time: 70, text: "I whispered underneath my breath" },
+    { time: 75, text: "But you heard it, darling, you look perfect tonight.......❤️❤️❤️" },
+];
+
+        document.getElementById('showMessageBtn').addEventListener('click', function() {
+            document.getElementById('initialContent').classList.add('hidden');
+            document.getElementById('messageContent').classList.remove('hidden');
+            document.getElementById('birthdaySong').play();
+        });
+
+        document.getElementById('showStoryBtn').addEventListener('click', function() {
+            document.getElementById('messageContent').classList.add('hidden');
+            document.getElementById('storyContent').classList.remove('hidden');
+        });
+
+        document.getElementById('cutCakeBtn').addEventListener('click', function() {
+            document.getElementById('storyContent').classList.add('hidden');
+            document.getElementById('birthdayCake').style.display = 'block';
+        });
+
+        const birthdaySong = document.getElementById('birthdaySong');
+        const lyricsElement = document.getElementById('lyrics');
+
+        birthdaySong.addEventListener('timeupdate', function() {
+            const currentTime = birthdaySong.currentTime;
+            const currentLyric = lyrics.find(lyric => currentTime >= lyric.time && currentTime < lyric.time + 10);
+            if (currentLyric) {
+                lyricsElement.textContent = currentLyric.text;
+            } else {
+                lyricsElement.textContent = "";
+            }
+        });
+    </script>
+</body>
+</html>
